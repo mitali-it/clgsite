@@ -1,0 +1,331 @@
+
+<style>
+*
+{
+background-color:linen;
+margin:20px;
+}
+button
+{
+height:50px;
+width:250px;
+font-size:26px;
+border-radius:50px;
+}
+button:hover
+{
+background-color:teal;
+}
+td
+{
+font-size:23px;
+}
+table
+{
+font-size:30px;
+}
+input,textarea
+{
+font-size:25px;
+}
+input[type="submit"]
+{
+height:40px;
+width:200px;
+font-size:26px;
+border-radius:50px;
+}
+input[type="reset"]
+{
+height:40px;
+width:200px;
+font-size:26px;
+border-radius:50px;
+}
+
+</style>
+
+<script>
+function valid()
+{
+num=parseInt(m.value)
+d=0
+for(i=num;i>0;i=parseInt(i/10))
+d++
+if(d!=10)
+{
+document.getElementById("m1").innerHTML="INVALID MOBILE NUMBER MUST BE OF 10 DIGITS"
+return false;
+}
+else
+{
+document.getElementById("m1").innerHTML=""
+}
+str=document.getElementById("e").value;
+if(str=="")
+{
+document.getElementById("e1").innerHTML=" "
+}
+else
+{
+c1=str.indexOf(".com")
+c2=str.indexOf("@")
+if(c1==-1 || c2==-1)
+{
+document.getElementById("e1").innerHTML="INVALID EMAIL ID  MUST BE OF @ AND .COM "
+return false;
+}
+else
+{
+document.getElementById("e1").innerHTML=" ";
+return true;
+}
+}
+}
+function log()
+{
+pass=p.value;
+c1=pass.indexOf("*")
+c2=pass.indexOf("@")
+c3=pass.indexOf("#")
+if(pass.length <8||c1==-1&&c2==-1&&c3==-1)
+{
+document.getElementById("p1").innerHTML=" password must  be at least 8 characters and must contain special characters *, # ,or @  "
+return false;
+}
+else
+{
+document.getElementById("p1").innerHTML=" ";
+return true;
+}
+}
+function a1()
+{
+document.getElementById("login").style="display:none";
+document.getElementById("home").style="display:none";
+document.getElementById("contact info").style="display:none";
+document.getElementById("register").style="display:block";
+}
+function a2()
+{
+document.getElementById("register").style="display:none";
+document.getElementById("home").style="display:none";
+document.getElementById("contact info").style="display:none";
+document.getElementById("login").style="display:block";
+
+}
+function a3()
+{
+document.getElementById("login").style="display:none";
+document.getElementById("register").style="display:none";
+document.getElementById("contact info").style="display:none";
+document.getElementById("home").style="display:block";
+}
+function a4()
+{
+document.getElementById("login").style="display:none";
+document.getElementById("register").style="display:none";
+document.getElementById("home").style="display:none";
+document.getElementById("contact info").style="display:block";
+
+}
+
+
+</script>
+
+<center>
+<h1><u>Welcome To Marwari College Ranchi</h1>
+<h2><font color="red">A Unit Of Ranchi Unerversity</u></font></h2>
+</center>
+<img src="mcr.jpg" style="position:absolute;top:0px;border:solid;border-radius:100px;height:120px;width:120px;margin:20px;">
+<div style="position:absolute;height:40px;width:1200px;left:180px">
+
+<button onclick="a3()">HOME</button>
+<button onclick="a1()">REGISTER</button>
+<button onclick="a2()">LOGIN</button>
+<button onclick="a4()">CONTACT INFO</button>
+<div id="register"style="display:none">
+<form  onsubmit="return valid()"action="save.php" >
+
+<br><br><br>
+
+<table >
+<tr>
+<td>Enter Name</td>
+<td><input type="text" required></td>
+</tr>
+<tr>
+<td>Reg No</td>
+<td><input type="text" required></td>
+</tr>
+<tr>
+<TD>MOBILE NUMBER</TD>
+<TD><INPUT TYPE="TEXT" id="m" required onchange="valid()"><font color="red" id="m1" ></font></TD>
+</tr>
+<tr>
+<TD>EMAIL ID</TD>
+<TD><INPUT TYPE="text" id="e" required onchange="valid()"><font color="red" id="e1"></font></TD>
+</tr>
+<tr>
+<td>DOB</td>
+<td><input type="date" required></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><textarea rows="5" cols="90"required></textarea></td>
+</tr>
+<tr>
+<td>Course</td>
+<td>
+<select>
+<option>Select The Course </option>
+<option>BCA</option>
+<option>B.Sc IT</option>
+<option>BCS</option>
+<option>B.Sc In AI&ML</option>
+<option>MBA</option>
+<option>MCA</option>
+<option>BBA</option>
+< required /select>
+</td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>
+<input type="radio" name="g">M
+<input type="radio" name="g" >F
+</td>
+</tr>
+<tr>
+<td>Languages Known</td>
+<td>
+<input type="checkbox">Hin
+<input type="checkbox">Eng
+<input type="checkbox">Nagpuri
+<input type="checkbox">Bhojpuri
+</td>
+</tr>
+<tr>
+<td>Upload Photo</td>
+<td><input type="file"required></td>
+</tr>
+<tr>
+<TD><input type="submit" value="SAVE"></TD>
+<TD><input type="reset" value="RESET"></TD>
+</tr>
+</table>
+
+</form>
+
+</div>
+
+<div id="login"style="display:none">
+<form  onsubmit="return log()" action="save.php">
+
+<table>
+
+<tr>
+<TD>USERNAME</TD>
+<TD><INPUT TYPE="TEXT"required></TD>
+</tr>
+<tr>
+<TD>PASSWORD</TD>
+<td><INPUT TYPE="password" id="p" onchange="log()"><font color="red" id="p1"required></font></TD>
+</tr>
+<tr>
+<TD><input type="submit" value="LOGIN"></TD>
+<TD><input type="reset" value="RESET"></TD>
+</tr>
+</table>
+</form>
+</div>
+
+<div id="home"style="display:block">
+<table>
+
+<div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:nowrap;">
+
+<img src="mcr2.jpeg" style<width="430" height="350" style="border:0;"  >
+
+<tr>
+<div style="width:500px;">
+<td>
+<h3>About College</h3>
+
+Marwari College, Ranchi
+was established in the year 1963 by the Marwari Shiksha Trust to facilitate higher education for the young and promising students of society, specially the tribes and downtrodden.
+
+This premier college of Jharkhand State came into existence with sincere and incessant efforts of Late Ganga Prasad Budhia. The first President of Marwari College Governing Body was Late Ganga Prasad Budhia.
+
+The college started with 30 students of Pre-University classes, 76 students of B.Com. and 64 students of B.A. in evening session in Marwari School situated at Pustak Path, Near Shaheed Chowk, Ranchi with Sri B.N. Chaubey as the first Principal In July 1967 a separate wing was started specially for girls because the number of students was increasing rapidly.
+
+Presently, Marwari College, Ranchi, as an Autonomous Institution, has got NAAC Accreditation for Higher Studies and formerly had 'Potential for Excellence' Award given by UGC, is providing Undergraduate and Post-Graduate Regular Courses to the students. The College is also providing Under Graduate and Post-Graduate Job Oriented Courses.
+
+Marwari College was recognized by UGC in 1968 U/s 2(F) & 12(B) as per UGC Act 1956 (enlistedon UGC website).
+The College was taken over by the Government under Ranchi University as its Constituent Unit in theyear 1980.
+The College got its first NAAC Accreditation in May 2004 (B++ as per Old Grading & Scoring Systemwith 80.65 points).
+Marwari College was awarded Autonomous Status from 2009 to 2015 by UGC, New Delhi.
+“Potential for Excellence” award was given by UGC, New Delhi in December 2010.
+Marwari College, Ranchi got NAAC Re-Accreditation(2nd Cycle) in September 2011 (Grade B as perNew Grading and Scoring System with 2.85 New CGPA)
+Mission :
+To Improve the graduate outcomes
+To train students in professional and soft skill
+Vision :
+To exploit the potential strength of the college and couple it it with available resources to create an ecosystem for quality in teaching-learning system that consequently ignite the brains of young generation for betterment of the society.
+</td>
+<div style="position :absolute;height:500px;width:500px;left:630px;top:50px;">
+
+<br>
+<br>
+<br>
+
+<h3>Principal Desk</h3>
+
+<p><style="max-width:300px;">
+
+"A liberal education is at the heart of a civil society, and at the heart of a liberal education is the act of teaching."
+                A. Bartlett Giamatti.
+<br>
+<br>
+<br>
+
+<h3>PRINCIPAL'S MESSAGE</h3>
+
+It gives me immense pleasure and joy in welcoming our visitors Marwari College, Ranchi. It goes without saying that it is an honor and privilege to be the Principal of the Marwari College, which is considered to be one of the premier educational institutions of the State of Jharkhand.
+
+Presently, Marwari College, Ranchi, as an Autonomous Institution, has got NAAC Accredition for Higher Studies having 'Potential for Excellence' Award given by UGC, is providing Undergraduate and Post-Graduate Regular Courses to the students. It is also providing Under Graduate and Post-Graduate Job Oriented Courses.
+</p>
+
+</table>
+</div>
+
+
+
+<div id="contact info"style="display:none">
+<h3>CONTACT INFO</h3>
+
+<table>
+<div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:nowrap;font-size:25px;">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.6398523379116!2d85.31715397532413!3d23.365058978935245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e104460df367%3A0x3bc13669149f6e54!2sMarwari%20College!5e0!3m2!1sen!2sin!4v1781172192989!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+<div style="max-width:500px;">
+<p>Marwari College, Ranchi Near Swami Vivekanand Sarovar Lake Road, Hindpiri, Ranchi Jharkhand-834001<br>
+</p>
+<p>Telephone  0651- 221 3134<br>
+
+Email Id  marwaricollegeranchi@gmail.com
+
+©2018 ALL RIGHTS RESERVED Marwari College,Ranchi
+</p>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
